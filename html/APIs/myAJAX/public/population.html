@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+  <body>
+        <h1>My First AJAX Call</h1>
+
+            <br/>
+
+            <div id="populationResult">
+            </div>
+
+            <button type = "button" onclick = "checkPopulation()">Get Population</button>
+
+    <script>
+    function checkPopulation() {
+      var currentPopulation = document.getElementById("populationResult");
+      $.ajax(
+        {
+          url: "/population",
+          crossDomain: true,
+          success: function(result)
+          {
+            var resultobj = result;
+            currentPopulation.innerText = "Current birthrate is " + resultobj.birthRate;
+          }
+        }
+      );
+    }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,189 @@
+Everything needs to be decalred then either return or console log to check it. Always call what you've declared
+
+VARIABLES:
+
+var varName = ..	creates a variable in the current scope. Must be assigned a name, parameter can be a placeholder
+=			creates a box in memory with the name on the left of =. 
+Changing variable	you don't use var again if variable already defined earlier. just type varName = new value
+			what's on the right of = is what is executed
+===			triple equals sign means exactly the same as each other
+
+
+basic maths		* m / d + a - s
+order of operations	PEMDAS: parens, exponents (eg squares &  roots), multiply, divide, add, subtract
+modulo %		divie first number by second number and return the remainder eg 6 % 2 === 0
+//			comments out a line
+confirm();		Asks the user to confirm information, eg click ok
+prompt();		asks the user to input a response. Only works in the browser
+console.log();		prints out what is between the parens to the screen
+console.error();	prints out any errors to your screen
+"string".length         tells you the length of the string
+"string".substring(start, stop)		a preview/part of the original string
+			first leter is in postiion 0
+			"hello".substring (0, 2); returns "he" bcos 1st number starts the chop, 2nd number is where chop position ends
+increment		increase a variable by a given amount. By one: varName++ By a set amount (eg 3): varName += 3
+decrement               decrease a variable by a given amount. By one: varName-- By a set amount (eg 3): varName -= 3
+Code comments:		// comments out a single line, /* ..... */  blocks a section of code
+			To select a whole section, higlight it and press Command / key
+
+OBJECTS:
+
+Properties:		things stored inside an object are called properties
+Keys:			keys to the values inside is through the name.property syntax. When declaring key: value,
+Declare it:		var myObject = {
+  				name: "Simon",
+				dob: "31/02/2003",
+				country: "Antigua",
+				numberOfFriends: 5
+			};
+Declare with constructor:	var myObj = new Object(); and then add keys in the following two ways:
+				myObj["name"] = "Charlie";
+				myObj.name = "Charlie";
+
+
+Adding properties later:	myObject.extraProperty = 5
+
+Call it:		console.log(myObject.name);
+
+ARRAYS:
+
+Element:		things stored inside an array are called elements
+Purpose:		store lists of data, can contain any data type, are ordered (position of each data piece is fixed).
+			useful for adding up numbers, counting, containing similar data types
+Syntax:			var arrayName = [data, data, data];
+			square brackets, elements separated by commas
+Index:			the key to elements inside arrays. First element of an array has an index (starts at position) 0
+Printing:		console.log(arrayName); will print all the contents in order on one line
+			console.log(arrayName[index] will print the data at that index only
+Length:			arrayName.length (the length will always be one longer than the last index position) 
+Heterogenous:		containing mixed data types
+Two-dimensional:	nested array
+
+
+FUNCTIONS:
+
+A function is an object so you need two parts to call it - the name and the parameter within brackets
+***A function can only return one value.****
+***To make a function print out what it's doing, you either need a return stateent within in it, 
+or a separate calling function before you console log
+You can't put a function inside a while loop, but you can call a function within a while loop (declare it earlier)	
+A function creates a black box. Think about what's going in, and what output you want, then our function is what is inside the black box
+What should my function do?
+What information does it need to do that?
+What information does it need to give back?
+console.log everything at various stages to track where you're at
+
+Contains:		anything! arrays, strings, code that runs loops etc
+Purpose:		take an input, do something with it, produce an output
+			write it, test that it does what you want, then use it with confidence in other code
+Naming:			naming a function using "is" eg isFizz when you're expecting true or false
+			otherwise use a really good name that says what it's going to do eg divideNumbers
+			you can comment the function in your code to explain the required input and output
+Declare:		var functionName = function(var) {}; var sayHello = function(name) {console.log....};
+			code within the parens is a parameter which will hold a specific value when we call the function 
+			reusable/repeatable code goes within the braces, every line ends with semi-colon
+2 parameter functions:	var perimeterBox = function(length, width) {
+				return (length * 2) + (width * 2);
+				};
+			perimaterBox(3, 2) will return 10, which is (3*2=6) + (2*2=4)
+Call it:		use the function name and var value (parameter)  within parens: sayHello("Julia")
+Return:			gives you back the value that comes from the function without printing to console
+Global variables:	defined outside a function, can be used anywhere in the code
+Local variables:	defined within the function, can only be used inside it
+Control flow:		the function is declared but it doesn't change the control flow. It only operates when you call it
+			best to declare functions at the top, then variables, then code.
+
+
+Common functions:
+Math.random();		generates a random number between 0 and 1.
+			if you want numbers between 0 and 10, assign to var and multiply by 10 etc
+			var randomNumber = Math.random() * 10;	
+
+Math.floor();		rounds down to the nearest integer eg 10.5 goes down to 10
+Math.ceil();		rounds up to the nearest integer eg 10.5 goes up to 11
+Math.round();		everything 0.5 will go up, everything under goes down
+.push();		push a value into something else
+			hits.push(text[index]); will push the text of the string at current index position into an array called hits
+isNaN();		checks to see if something is not a number and returns a boolean
+.toUpperCase();		converts the user's answer to all caps before saving in the variable
+.toLowerCase();		converts the user's answer to all lower case before saving in the variable
+.toString();		eg 4.toString gives 4 in a string
+LOOPS:
+
+For Loops:		Used for simple counting. Used when you know ahead of time how many loops to do.
+			The for loop has three parts:
+			1. initialiser: a counting variable with a starting value
+			2. a condition of how long to keep running the loop
+			3. an incrementer or decrementer
+			Then a block of code within curly braces eg
+Syntax:			for(var counter = 1; counter < 11; counter++) {
+				console.log(counter);
+			}
+			The control flow is 1, 2 then the code block, then 3
+
+While Loops:		Used when you don't know ahead of time the number of loops you will need to perform to meet conditions
+			The loop will continue to run until its condition is false			
+Syntax:			while(condition) {
+				do some code;
+			}
+
+Do/While Loops:		Will run at least once. The "Do" code runs first, then it checks the while loop. 
+			The while loop will only run if the condition being evaluated is true
+Syntax:			do {
+				some code
+
+			} while(condition is true);
+
+
+Infinite Loops:		A loop containing a condition that will always be true
+			It will run forever and crash your program
+			Use Control C to break out
+
+DATA TYPES:
+
+Integers		whole numbers, quatities
+Strings			sequences of characters, spaces, and numbers (if in quotes). Labels, names and content. Surround with quotes
+Floats
+Booleans		compare things to determine either true or false. < > <= >= === !==
+			numerically, 1 = true and 0 = false
+
+LOGICAL OPERATORS:
+&&			and, evaluates to true if both conditions are true
+||			or, evaluates to true if one or other or both conditions are true
+!			not, ie !== means not equal. !true makes true expressions false and vice versa
+
+IF/ELSE:
+
+if(condition is true) {			if("myName".length >=7) {	
+	do this action				console.log("You have a long name!");
+} else #condition is false#{		} else {
+	do this action				console.log("You have a short name");
+}					}
+
+SWITCH STATEMENT:
+
+Use instead of multiple if/else statements when you have a lot of choices
+How to use:		Pre set your options, called CASES. 
+			check an expression/imput to see if it matches any cases
+			if yes, perform your pre-set action, if no, execute your pre-set DEFAULT option
+Syntax:			var lunch = prompt("What's your favourite lunch?);
+			switch(lunch){
+				case 'sandwich':
+					console.log("One sandwich coming up");
+					break;
+				default:
+					console.log(I don'tknow how to make that, how about a sandwich?");
+				}
+
+
+META PROGRAMMING:
+High Order Functions	Function within a function. Passing a function as a parameter of another function
+setTimeout		takes a function and time and runs it setTimeout(func, time);
+			Time is measured in miliseconds so 1000 is 1 second
+setInterval		eg Call something every 3 seconds setInterval(func, time);
+LIBRARIES:
+
+
+
+Alt command J backend of Chrome
+Event driven programming	Your code gets called when a certain pre-set event occurs (eg a mouse moving, button click)

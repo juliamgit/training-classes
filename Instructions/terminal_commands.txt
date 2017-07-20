@@ -1,0 +1,60 @@
+Move around:
+Command arrows		move between open windows within the same program
+fn l or r arrow		start or end of line
+fn u or d arrow		top or bottom of page
+shift l or r arrow	start of next or previous word
+cd			change directory
+cd dir_name		takes you directly to that specified directory (or cd dir_name/dir_name if nested)
+cd ..			up one directory
+cd ../..		up another directory (can be used repeatedly)
+~ or cd ~		home directory
+
+
+Search or Display:
+echo ""		prints to screen what is in the quotes
+wc		word, line character and byte count		
+ls		lists all files and directories inside the current working directory
+ls -l		lists all contents of a directory in long format
+ls -a		-a is an OPTION which modifies the ls command. It lists the hidden files/directories starting with a . (dot)
+ls -t		order all files/directories by time last modified
+ls -alt		does all 3 above in one
+Command +	make the font size bigger
+pwd		print working directory: displays the current dir pathway
+env		displays the current environment variables
+cat file_name	displays 10 lines within a file
+man --help	displays help manual for that location
+man (commmand)	gives the manual for any command eg man ls will display all ls commands
+highlight	use the mouse!
+sudo su		switches you to the "Superuser" or "Root" ie the powerful admin
+whoami		tells you who is logged in
+wc filename	
+
+
+Add or remove:
+mkdir dir_name			adds a new directory with that name and puts inside the current directory
+touch file_name.txt		creates an empty new file with that name and puts in the current directory
+				can do this straight into a directory: touch dir_name/file_name.txt
+rm file_name.txt		PERMANENTLY removes (deletes) a file with that name
+rmdir dir_name			PERMANENTLY removes (deletes) a directory with that name
+rm -r dir_name			"recursive" PERMANENTLY removes a directory & all child directories
+mv source destination 		mv file_name file_name1 to change filename but not move it
+				or mv file_name.txt /dir_name to move to new location
+				you can move multiple files only where the destination is a directory. 
+                                You can't move multiple files into a single file destination.
+tab				autocompletes the filename after the first couple of letters typed
+up arrow			autofills the last used command (up to 10) at the prompt
+cp source destination		copy the contents of a file or directory into another one
+				you can copy multiple files only where the destination is a directory. 
+				You can't copy multiple files into a single file destination.
+				List them and then put a destination directory at the end
+cp * destination		* is a wildcard. It selects all files in the working directory and copies them
+cp m*.txt destination		copies all files beginning with m of file type .txt		
+
+
+Notes:
+Argument	When a file, directory or program is passed into a command, it is called an argument
+Option		Modifies the behaviour of a command (eg ls -l)
+Filesystem	organises a computer's files and directories into a tree structure
+Root directory	the starting/parent directory containing child directories and files
+Bits
+Bytes

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+         <style>
+         body {
+           background-color: powderblue;
+           text-align: center;
+         }
+         h1   {
+           color: blue;
+           text-align: center;
+           font-family: Impact, Arial Black;
+
+         }
+         p    {
+          color: black;
+          text-align: center;}
+         button {
+           background-color: black;
+           color: white;
+           font-size: 50px;
+           border-radius: 15px 50px;
+           padding: 20px;
+           text-align: center;
+          }
+          #startgame {
+            background-color: green;
+          }
+
+          #lucky {
+            font-size: 15px;
+          }
+          div {
+            color: white;
+            text-align: center;
+            font-size: 25px;
+          }
+}
+         </style>
+  </head>
+    <body>
+          <h1>Children Playing a Game</h1>
+            <br/>
+          <p>In this game, children are playing in a circle</p>
+          <p>Starting from the first child, we count a certain number of skips</p>
+          <p>The child we land on is eliminated</p>
+          <p>The remaining child is the winner!</p>
+            <br/>
+
+          <p>How many children are playing?   <input type = "text" id= "numberOfChildren"></input>
+            <!-- <div id = "result"></div> -->
+              <br/>
+          <p>How many skips would you like?   <input type = "text" id= "eliminationCount"></input>
+            </p>
+          <p><button id= "startgame" type = "button" onclick = "childGame()">Start Game</button></p>
+          <p><button id= "lucky" type = "button" onclick = "randomNumber()">I'm Feeling Lucky</button></p>
+
+            <div id="GameResultWinner"></div>
+            <div id="GameResultEliminated"></div>
+
+    <script>
+    function randomNumber(){
+      var numberOfChildren = document.getElementById("numberOfChildren");
+      var eliminationCount = document.getElementById("eliminationCount");
+      numberOfChildren.value = Math.ceil(Math.random() * 20);
+      eliminationCount.value = Math.ceil(Math.random() * 10);
+    }
+//&nbsp; means non-breaking space, stops it from wrapping, also keeps things together eg "Mr. Smith"
+//&quot; puts something into double quotes
+//&amp; creates an ampersand
+//&copy; displays the copyright symbol
+//&reg; displays the registered r in a circle
+
+
+    function childGame(children, skips) {
+      var GameResultWinner = document.getElementById("GameResultWinner");
+      var GameResultEliminated = document.getElementById("GameResultEliminated");
+      var numberOfChildren = document.getElementById("numberOfChildren").value;
+      var eliminationCount = document.getElementById("eliminationCount").value;
+        if(numberOfChildren.length < 1 || eliminationCount.length < 1 ||
+            isNaN(numberOfChildren) || isNaN(eliminationCount)) {
+          GameResult.innerText = "Please enter your numbers";
+          GameResultEliminated.innerText = "";
+        } else {
+      $.ajax(
+        {
+          url: "/childgame",
+          type: "get",
+          data: {
+            children: numberOfChildren,
+            skips: eliminationCount
+          },
+          success: function(result)
+          {
+            GameResultWinner.innerHTML = "The winner is " + "<span style = 'color: green'>" + result.winner + "</span>"
+            GameResultEliminated.innerHTML = "The children eliminated are " + "<span style = 'color: red'>" + result.eliminationOrder + "</span>";
+          }
+        }
+      );
+    }
+    }
+    </script>
+  </body>
+</html>

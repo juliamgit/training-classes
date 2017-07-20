@@ -1,0 +1,84 @@
+<head>
+  <style>
+#raindrop {
+  color: blue;
+  height: 100px;
+  position: absolute;
+}
+
+  </style>
+</head>
+<!-- <body onmousemove="mouseMove(event)"> -->
+<!-- <div>
+<button onclick="clickme()"> Click Me </button> -->
+<!-- </div> -->
+<h1 id="scoreboard">Score: 0</h1>
+
+<div id="raindrop" class = "rain" onclick="clickme()">
+  <img width=50px src="http://images.clipartpanda.com/raindrop-clipart-cute-raindrop.png">
+  </img>
+</div>
+<div id="raindrop" class = "rain" onclick="clickme()">
+  <img width=50px src="http://images.clipartpanda.com/raindrop-clipart-cute-raindrop.png">
+  </img>
+</div>
+<div id="raindrop" class = "rain" onclick="clickme()">
+  <img width=50px src="http://images.clipartpanda.com/raindrop-clipart-cute-raindrop.png">
+  </img>
+</div>
+<div id="raindrop" class = "rain" onclick="clickme()">
+  <img width=50px src="http://images.clipartpanda.com/raindrop-clipart-cute-raindrop.png">
+  </img>
+</div>
+<div id="raindrop" class = "rain" onclick="clickme()">
+  <img width=50px src="http://images.clipartpanda.com/raindrop-clipart-cute-raindrop.png">
+  </img>
+</div>
+<div id="raindrop" class = "rain" onclick="clickme()">
+  <img width=50px src="http://images.clipartpanda.com/raindrop-clipart-cute-raindrop.png">
+  </img>
+</div>
+<div id="raindrop" class = "rain" onclick="clickme()">
+  <img width=50px src="http://images.clipartpanda.com/raindrop-clipart-cute-raindrop.png">
+  </img>
+</div>
+
+
+
+<script>
+// var raindropStartLeft = (Math.random() * window.innerWidth);
+// var raindropStartTop = (Math.random() * window.innerHeight);
+var currentPosition = Math.random() * 60;
+// var randomRaindropLeft;
+
+var rainFall = function() {
+  var raindrop = document.getElementsByClassName("rain");
+  var index = 0;
+  while(index < raindrop.length) {
+    raindrop[index].style.top = currentPosition + "px";
+    currentPosition += 10;
+    if(currentPosition > window.innerHeight) {
+      raindrop[index].style.top = "0px";
+      currentPosition = 0;
+      raindrop[index].style.left = Math.random() * window.innerWidth + "px";
+    };
+  index++;
+  };
+};
+
+setInterval(rainFall, 500);
+
+var numberOfClicks = 0;
+var clickme = function() {
+    numberOfClicks++;
+    scoreboard.innerHTML = "Wow, your score is " + numberOfClicks;
+    console.log("You caught " + numberOfClicks + " number of raindrops");
+  };
+
+var scoreboard = document.querySelector("#scoreboard");
+
+// console.log(scoreboard.innerHTML);
+
+
+</script>
+</body>

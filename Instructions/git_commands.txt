@@ -1,0 +1,20 @@
+Git Commands
+
+git init	create a project (folder)		git init project_name_here
+git log		view your project's history		press q to quit git log mode
+git log --graph	view the changes in graph		oldest is at the bottom of screen
+git status	see what has changed
+git add		add a file to staging			git add file_name.txt
+git add .	add multiple files to staging
+git commit	save staged changes to repository	git commit -m "added content to file_name.txt"
+							whole quote message, don't need to specify file when commit
+							message must be in quotes
+							written in present tense
+							brief and properly descriptive
+git push	save changes to hub
+git pull	get current changes from hub
+git diff	check what changed between working directory and the staging area file
+							git diff file_name.txt
+							press q on keyboard to exit diff mode
+
+

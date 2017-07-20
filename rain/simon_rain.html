@@ -1,0 +1,78 @@
+// rain.html
+<style>
+    body {
+        background-color: black;
+    }
+    .drop {
+        color: blue;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        background-color: lightblue;
+        border-radius: 5px;
+    }
+</style>
+<script>
+    var drops = [];
+    var dropIndex = 0;
+    var wind = 0;
+    var windDestination = 0;
+
+    var MAX_SPEED = 20;
+    var TIME_TILL_NEW_DROP = 5;
+    var MAX_WIND = 10;
+    var WINDCREMENT = 0.5;
+    var WIND_CHANGE_TIME = 4000;
+
+    setTimeout(randomlyMakeNewDrop, TIME_TILL_NEW_DROP);
+    setInterval(fall, 50);
+    setTimeout(changeWind, WIND_CHANGE_TIME)
+
+    function fall() {
+        if (wind < windDestination) wind += WINDCREMENT;
+        if (wind > windDestination) wind -= WINDCREMENT;
+
+        drops = drops.filter(function(d) {
+            d.top += d.speed;
+            d.left += wind;
+
+            d.div.style.top = d.top + "px";
+            d.div.style.left = d.left + "px";
+
+            if (d.top < window.innerHeight) {
+                return true;
+            } else {
+                document.body.removeChild(d.div);
+                return false;
+            }
+        });
+    }
+
+    function randomlyMakeNewDrop() {
+        var drop = {};
+
+        drop.left = Math.floor(Math.random() * window.innerWidth) * 1.5 - window.innerWidth/4;
+        drop.top = 0;
+        drop.speed = Math.ceil(Math.random() * MAX_SPEED) + 5;
+        drop.id = "drop" + dropIndex++;
+
+        drop.div = document.createElement('div');
+        drop.div.className = 'drop';
+        drop.div.id = drop.id
+        drop.div.style.backgroundColor = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+
+        document.body.appendChild(drop.div);
+
+        drop.div.style.left = drop.left + "px";
+        drop.div.style.top = "0px";
+
+        drops.push(drop);
+
+        setTimeout(randomlyMakeNewDrop, Math.floor(Math.random()*TIME_TILL_NEW_DROP));
+    }
+
+    function changeWind() {
+        windDestination = Math.floor(Math.random()*MAX_WIND) * 2 - MAX_WIND;
+        setTimeout(changeWind, Math.floor(Math.random()*WIND_CHANGE_TIME + 3000));
+    }
+</script>

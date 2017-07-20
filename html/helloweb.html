@@ -1,0 +1,53 @@
+<head>
+  <style>
+#orange {
+  color: red;
+  background-color: orange;
+  height: 100px;
+  position: absolute;
+}
+
+  </style>
+</head>
+<body onmousemove="mouseMove(event)">
+Hello world wide web
+<div>
+<button onclick="clickme()"> Click Me </button>
+</div>
+<a href=""></a>
+<h2> BOO </h2>
+
+<img width=100px src="http://cliparting.com/wp-content/uploads/2016/06/Image-of-baby-lion-clipart-9-pinmelody-bray-on-clip-art-zoo.jpg">
+</img>
+
+<div id="orange">
+  This is inside a division
+</div>
+<div>
+  So is this.
+</div>
+</body>
+<script>
+  console.log("Who's your daddy?");
+  var currentPosition = 0;
+  var clickme = function() {
+    console.log("It was clicked. Woot!");
+    var orange = document.querySelector("#orange");
+    orange.style.color = "blue";
+    orange.style.left = currentPosition + "px";
+    currentPosition += 10;
+  }
+
+// setInterval(clickme, 1000);
+
+ var mouseMove = function(event) {
+   console.log("Mousey");
+   orange.style.left = event.clientX + "px";
+   orange.style.top = event.clientY + "px";
+
+  //  debugger;
+
+ }
+
+
+</script>

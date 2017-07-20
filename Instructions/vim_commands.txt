@@ -1,0 +1,7 @@
+vim file_name		opens the file you want to write in
+i			insert (start typing text)
+esc			escapes you out of Insert mode
+:w			writes to the file (saves)
+:q			quits out (to terminal)
+:wq			save then quit (not advisable)
+	

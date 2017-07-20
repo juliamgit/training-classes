@@ -1,0 +1,93 @@
+TESTS
+
+Setup: 
+get the data ready
+
+Run: 
+process the test
+
+Assert:
+what you want to check. 
+Try to keep it concise, not too many assertions
+Compare the expected outcome with the actual
+
+assert(expected).is(actual)
+
+Continuous Integration Server(Buildserver):
+Jenkins or Go!
+BuildServer checks with Git every few seconds for changes, compiles/buiild, then tests
+
+
+Environments:
+Development
+Systems Integration Testing (most stable)
+Pre-Production
+Production
+
+The more environments the more costly, it's a balance between having enough environments to test things properly and money
+
+Test Coverage:
+
+Myob aims to have high percentage of test coverage
+It's impossible to have a test case for every single possibility. 
+Instead, you want to write texts that make sure each line of your code runs and works as you expect
+
+UI Testing:
+This is usually automated
+Tests how the user would drive the applciation, eg button click results
+
+
+Integration Test:
+End to end. Requires you to access the database
+
+BDD:
+Behavioural Driven Testing/Business Driven Testing
+usually written by BAs or Product Managers etc
+Given ------, when ------, then -------
+"Given I have 5 cars, I want to execute this"
+It's written in plain English, it's how you want the code to behave from a user perspective
+The framework knows how to take the keywords in the English and execute into code
+
+Unit Testing:
+
+Testing a really small chunk of code, eg a function
+call your function and capture the result
+
+var result = function(a)
+if (result === "string") {
+	console.log("passed");
+} else {
+	console.log("failed");
+}
+
+var isPos = function(number) {
+	if(number < 0) {
+	return false;
+	} else {
+	return true;}
+the above should return false if less than 0 
+and true if greater than zero.
+So we need to write two unit tests
+
+do the tests in a new file called spec or test
+
+Edge case:
+
+Think about niche cases that would trip up the function. Eg what if the above number equals zero?
+You need to think about adding "or equal to".
+
+Then add should return false if given zero.
+
+The test syntax is:
+ "should"
+{ "return true
+	"if greater than zero"
+	isPos(10) 
+	actual = expected
+
+TDD - TEST DRIVEN DEVELOPMENT
+
+
+Write the test first. You think abou the different cases first before the code
+
+
